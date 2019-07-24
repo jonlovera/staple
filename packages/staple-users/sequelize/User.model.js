@@ -1,44 +1,58 @@
+const Sequelize = require("sequelize");
 const bcrypt = require("bcrypt");
 
 module.exports = {
-  model: {
-    attributes: {
-      id: { prefix: "user" },
-      firstName: {
-        type: String,
-        required: true
-      },
-      lastName: {
-        type: String,
-        required: true
-      },
-      email: {
-        type: String,
-        required: true,
-        unique: true
-        // validate: [validate({ validator: 'isEmail' })],
-      },
-      password: {
-        type: String,
-        required: true
-      }
+  attributes: {
+    // id: { prefix: "user" },
+    firstName: {
+      type: Sequelize.STRING,
+      required: true
     },
+    lastName: {
+      type: Sequelize.STRING,
+      required: true
+    },
+    email: {
+      type: Sequelize.STRING,
+      required: true,
+      unique: true
+      // validate: [validate({ validator: 'isEmail' })],
+    },
+    password: {
+      type: Sequelize.STRING,
+      required: true
+    }
+  },
 
-    // instance methods
+  // instance methods
+  instanceMethods: {
     async verifyPassword(password) {
       return await bcrypt.compare(password, this.password);
     },
+    toJSON() {
+      const values = this.get();
+      delete values.password;
+      return values;
+    }
+  },
 
-    // hooks
-    async beforeSave(next) {
-      if (this.isModified("password"))
-        this.password = await bcrypt.hash(this.password, 10);
+  // class methods
+  classMethods: {
+    async login({ email, password }) {
+      const user = await this.retrieve({ email });
+      const isValidPassword = await user.verifyPassword(password);
 
-      next();
-    },
-    toJSON(doc) {
-      delete doc.password;
-      return doc;
+      if (isValidPassword) return user;
+
+      return null;
+    }
+  },
+
+  // hooks
+  hooks: {
+    async beforeSave(instance, options) {
+      if (instance.changed("password"))
+        instance.password = await bcrypt.hash(instance.password, 10);
     }
   }
 };

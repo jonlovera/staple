@@ -1,8 +1,11 @@
 const { parse } = require("staple");
 const { send } = require("micro");
 
+const user = require("./sequelize/User.model");
+
 module.exports = ({ controller, database }) => {
-  const User = database.model("User");
+  const User = database.model("User", user);
+  // console.log("users", User);
 
   return {
     login: controller(async (req, res) => {
@@ -14,17 +17,21 @@ module.exports = ({ controller, database }) => {
 
       if (!error) {
         code = 200;
-        // const user = await User.login({ email, password });
-        user = { email, password };
+        user = await User.login({ email, password });
       }
 
       send(res, code || 400, { error, user });
     }),
     signup: controller(async (req, res) => {
-      const statusCode = 200;
-      const data = { data: "Signup" };
+      const params = await parse(req);
+      let code, error, user;
 
-      send(res, statusCode, data);
+      if (!error) {
+        code = 200;
+        user = await User.create(params);
+      }
+
+      send(res, code || 400, { error, user });
     }),
     forgotPassword: controller(async (req, res) => {
       const statusCode = 200;
