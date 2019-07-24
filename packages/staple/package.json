@@ -1,0 +1,16 @@
+{
+  "name": "staple",
+  "version": "1.0.0-alpha.14",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "finalhandler": "^1.1.2",
+    "micro": "^9.3.4",
+    "urlencoded-body-parser": "^3.0.0"
+  }
+}
