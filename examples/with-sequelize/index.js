@@ -7,13 +7,20 @@ const sequelize = new Sequelize(
 );
 
 staple.setup({
-  sequelize
+  sequelize,
   // database: {
   //   retrieve: (model, query) => sequelize.model(model).find(query)
   //   models: {
   //     User
   //   }
-  // }
+  // },
+  papers: {
+    users: {
+      jwt: {
+        privateKey: "MY_SUPER_SECRET_PRIVATE_KEY"
+      }
+    }
+  }
 });
 
 const app = express();

@@ -1,5 +1,6 @@
 const Sequelize = require("sequelize");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 module.exports = {
   attributes: {
@@ -40,9 +41,15 @@ module.exports = {
   classMethods: {
     async login({ email, password }) {
       const user = await this.retrieve({ email });
-      const isValidPassword = await user.verifyPassword(password);
 
-      if (isValidPassword) return user;
+      if (user) {
+        const isValidPassword = await user.verifyPassword(password);
+        const privateKey = this.getCurrentPaper("config.jwt.privateKey");
+
+        const token = jwt.sign({ user }, privateKey);
+
+        if (isValidPassword) return { user, token };
+      }
 
       return null;
     }

@@ -1,21 +1,13 @@
 "use strict";
 
+const dot = require("dot-object");
 const merge = require("merge-deep");
 const { controller, appPath } = require("./utils");
 
 class Staple {
   constructor() {
     this.models = {};
-    this.database = {
-      model: (name, options) => {
-        const model = this.models[name];
-
-        if (typeof options === "object")
-          this.models[name] = merge(model, options);
-
-        return this.models[name];
-      }
-    };
+    this.papers = {};
   }
 
   setup(options) {
@@ -25,16 +17,58 @@ class Staple {
     const pkg = require(appPath("package.json"));
     const dependencies = { ...pkg.dependencies, ...pkg.devDependencies };
 
-    Object.keys(dependencies).map(moduleName => {
-      if (moduleName.indexOf("staple-") === 0) {
-        const name = moduleName.replace("staple-", "");
+    // load papers configurations
+    const papers = options.papers || {};
 
-        if (!staple[name]) {
-          const module = require(appPath(`node_modules/${moduleName}`));
+    Object.keys(dependencies).map(pkgName => {
+      if (pkgName.indexOf("staple-") === 0) {
+        const paperName = pkgName.replace("staple-", "");
 
-          const helpers = { controller, database: this.database };
+        if (!staple[paperName]) {
+          const module = require(appPath(`node_modules/${pkgName}`));
 
-          staple[name] = module(helpers);
+          const config = papers[paperName] || {};
+
+          this.papers[paperName] = {
+            name: pkgName,
+            config,
+            getConfig(value) {
+              return dot.pick(value, this.config);
+            }
+          };
+
+          const database = {
+            model: (name, options) => {
+              const model = this.models[name];
+
+              if (typeof options === "object") {
+                this.models[name] = {
+                  ...merge(model, options),
+
+                  // General configurations
+                  staple,
+
+                  // add extra helper so models can access
+                  // the current paper configurations
+                  getCurrentPaper(value) {
+                    const paper = this.staple.papers[paperName];
+                    if (value) return dot.pick(value, paper);
+                    return paper;
+                  }
+                };
+              }
+
+              return this.models[name];
+            }
+          };
+
+          const helpers = {
+            paper: this.papers[paperName],
+            database,
+            controller
+          };
+
+          staple[paperName] = module(helpers);
         }
       }
     });

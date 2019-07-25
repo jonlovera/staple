@@ -8,9 +8,7 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "micro": "^9.3.4"
-  },
+  "dependencies": {},
   "devDependencies": {
     "staple": "^1.0.0-alpha.14"
   },

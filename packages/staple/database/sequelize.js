@@ -1,6 +1,6 @@
 const { parseWhere } = require("./utils");
 
-module.exports = function({ sequelize }) {
+module.exports = function({ sequelize, papers }) {
   this.sequelize = sequelize;
 
   Object.keys(this.models).map(name => {
@@ -39,7 +39,6 @@ module.exports = function({ sequelize }) {
 
       // Personalized model methods
       ...classMethods
-      // sequelize: Model
     };
 
     this.models[name] = Object.assign(this.models[name], actions);

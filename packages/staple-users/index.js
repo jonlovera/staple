@@ -1,49 +1,38 @@
 const { parse } = require("staple");
-const { send } = require("micro");
 
 const user = require("./sequelize/User.model");
 
 module.exports = ({ controller, database }) => {
   const User = database.model("User", user);
-  // console.log("users", User);
 
   return {
     login: controller(async (req, res) => {
+      let code;
+      let response = {};
+
       const { email, password } = await parse(req);
-      let code, error, user;
 
-      if (!password) error = "Password is required";
-      if (!email) error = "Email is required";
-
-      if (!error) {
-        code = 200;
-        user = await User.login({ email, password });
+      if (!password || !email) {
+        const param = !email ? "Email" : "Password";
+        return res.badRequest(`${param} is required`);
       }
 
-      send(res, code || 400, { error, user });
+      const user = await User.login({ email, password });
+      if (user) return res.send(user);
+
+      return res.badRequest("Invalid email or password.");
     }),
     signup: controller(async (req, res) => {
       const params = await parse(req);
-      let code, error, user;
+      const user = await User.create(params);
 
-      if (!error) {
-        code = 200;
-        user = await User.create(params);
-      }
-
-      send(res, code || 400, { error, user });
+      if (user) return res.send(user);
     }),
     forgotPassword: controller(async (req, res) => {
-      const statusCode = 200;
-      const data = { data: "Forgot password" };
-
-      send(res, statusCode, data);
+      return res.send({ data: "Forgot password" });
     }),
     resetPassword: controller(async (req, res) => {
-      const statusCode = 200;
-      const data = { data: "Reset password" };
-
-      send(res, statusCode, data);
+      return res.send({ data: "Reset password" });
     })
   };
 };
