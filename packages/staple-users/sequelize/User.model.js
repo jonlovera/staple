@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+const { crypto } = require("../utils");
 
 module.exports = {
   attributes: {
@@ -22,6 +22,12 @@ module.exports = {
     password: {
       type: Sequelize.STRING,
       required: true
+    },
+    updatePasswordToken: {
+      type: Sequelize.STRING
+    },
+    updatePasswordTokenExpires: {
+      type: Sequelize.DATE
     }
   },
 
@@ -30,28 +36,51 @@ module.exports = {
     async verifyPassword(password) {
       return await bcrypt.compare(password, this.password);
     },
+    async generateResetPasswordToken() {
+      const token = (await crypto.randomBytes(20)).toString("hex");
+      const expires = new Date();
+
+      this.updatePasswordToken = token;
+      this.updatePasswordTokenExpires = expires;
+
+      await this.save();
+
+      return { token, expires };
+    },
+    async sendEmail() {
+      console.log("send email to: " + this.email);
+    },
     toJSON() {
       const values = this.get();
       delete values.password;
+      delete values.updatePasswordToken;
+      delete values.updatePasswordTokenExpires;
       return values;
     }
   },
 
   // class methods
   classMethods: {
-    async login({ email, password }) {
+    async forgotPassword(email) {
       const user = await this.retrieve({ email });
 
       if (user) {
-        const isValidPassword = await user.verifyPassword(password);
-        const privateKey = this.getCurrentPaper("config.jwt.privateKey");
-
-        const token = jwt.sign({ user }, privateKey);
-
-        if (isValidPassword) return { user, token };
+        const { token, expires } = await user.generateResetPasswordToken();
+        await user.sendEmail("forgot-password");
+        return "Password requested.";
       }
+    },
+    async updatePassword(updatePasswordToken, password) {
+      const user = await this.retrieve({ updatePasswordToken });
 
-      return null;
+      if (user) {
+        user.update({
+          password,
+          updatePasswordToken: null,
+          updatePasswordTokenExpires: null
+        });
+        return "Password was updated succesfully.";
+      }
     }
   },
 

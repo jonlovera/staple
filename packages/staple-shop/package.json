@@ -7,11 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {},
-  "devDependencies": {
-    "staple": "^1.0.0-alpha.14"
-  },
   "peerDependencies": {
     "staple": "^1.0.0-alpha.14"
   }

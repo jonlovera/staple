@@ -1,6 +1,7 @@
 const path = require("path");
 const finalhandler = require("finalhandler");
 const { send } = require("micro");
+const parse = require("urlencoded-body-parser");
 
 const parseError = error => (typeof error === "string" ? { error } : error);
 
@@ -17,6 +18,8 @@ module.exports.controller = controller => async (arg1, arg2, arg3) => {
     next = arg2;
   }
 
+  if (!req.body) req.body = await parse(req);
+  // if (!req.params) req.params = arg1.params;
   if (!res.send) res.send = value => send(res, 200, value);
   if (!res.status)
     res.status = code => {
@@ -27,7 +30,8 @@ module.exports.controller = controller => async (arg1, arg2, arg3) => {
   res.unauthorized = error => res.status(401).send(parseError(error));
   res.forbidden = error => res.status(403).send(parseError(error));
   res.notFound = error => res.status(404).send(parseError(error));
-  res.serverError = error => res.status(500).send(parseError(error));
+  res.serverError = error =>
+    res.status(500).send(parseError(error || "Something unexpected happened"));
 
   try {
     return await controller(
