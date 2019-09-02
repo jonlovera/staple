@@ -7,7 +7,7 @@
   },
   "scripts": {
     "lerna": "lerna bootstrap",
-    "start": "npm run express",
+    "start": "npm run sequelize",
     "koa": "npm run dev --prefix ./examples/with-koa",
     "http": "npm run dev --prefix ./examples/with-http",
     "express": "npm run dev --prefix ./examples/with-express",

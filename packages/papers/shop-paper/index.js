@@ -1,5 +1,3 @@
-const { send } = require("micro");
-
 module.exports = ({ controller, database }) => {
   return {
     plans: {

@@ -47,8 +47,28 @@ module.exports = {
 
       return { token, expires };
     },
-    async sendEmail() {
-      console.log("send email to: " + this.email);
+    async sendEmail(templateOrOptions) {
+      const isOptions = typeof templateOrOptions === "object";
+      const template = isOptions
+        ? templateOrOptions.template
+        : templateOrOptions;
+      const options = isOptions ? templateOrOptions : {};
+
+      const { booklet } = this._modelOptions;
+      const { email } = booklet.find("mailer");
+
+      await email.send({
+        ...options,
+        template,
+        message: {
+          to: this.email,
+          ...(options.message || {})
+        },
+        locals: {
+          ...(options.locals || {}),
+          user: this.toJSON()
+        }
+      });
     },
     toJSON() {
       const values = this.get();
@@ -56,31 +76,6 @@ module.exports = {
       delete values.updatePasswordToken;
       delete values.updatePasswordTokenExpires;
       return values;
-    }
-  },
-
-  // class methods
-  classMethods: {
-    async forgotPassword(email) {
-      const user = await this.retrieve({ email });
-
-      if (user) {
-        const { token, expires } = await user.generateResetPasswordToken();
-        await user.sendEmail("forgot-password");
-        return "Password requested.";
-      }
-    },
-    async updatePassword(updatePasswordToken, password) {
-      const user = await this.retrieve({ updatePasswordToken });
-
-      if (user) {
-        user.update({
-          password,
-          updatePasswordToken: null,
-          updatePasswordTokenExpires: null
-        });
-        return "Password was updated succesfully.";
-      }
     }
   },
 

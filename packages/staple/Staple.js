@@ -4,39 +4,67 @@ const dot = require("dot-object");
 const merge = require("merge-deep");
 const { controller, appPath } = require("./utils");
 
+const getter = function(value) {
+  // Remove get function from it to avoid calling get again
+  const { get, ...options } = this;
+  if (value) return dot.pick(value, options);
+  return options;
+};
+
 class Staple {
   constructor() {
     this.models = {};
-    this.papers = {};
+    this.booklet = {};
   }
 
-  setup(options) {
+  setup(options = {}) {
     console.clear();
 
     const staple = this;
     const pkg = require(appPath("package.json"));
     const dependencies = { ...pkg.dependencies, ...pkg.devDependencies };
 
-    // load papers configurations
+    //
+    // Load app papers configurations
+    //
     const papers = options.papers || {};
 
     Object.keys(dependencies).map(pkgName => {
-      if (pkgName.indexOf("staple-") === 0) {
-        const paperName = pkgName.replace("staple-", "");
+      if (pkgName.indexOf("-paper") > -1) {
+        const paperName = pkgName.replace("-paper", "");
 
         if (!staple[paperName]) {
           const module = require(appPath(`node_modules/${pkgName}`));
 
           const config = papers[paperName] || {};
 
-          this.papers[paperName] = {
+          //
+          // Add information to the list of papers
+          // to keep them organized
+          //
+          this.booklet[paperName] = {
             name: pkgName,
-            config,
-            getConfig(value) {
-              return dot.pick(value, this.config);
+            config: {
+              ...config,
+              // get(value) {
+              //   // Remove get function from it to avoid calling get again
+              //   const { get, ...options } = this;
+              //   if (value) return dot.pick(value, options);
+              //   return options;
+              // }
+              get: getter
             }
           };
 
+          const booklet = {
+            current: this.booklet[paperName],
+            find: getter,
+            ...this.booklet
+          };
+
+          //
+          // Define database helpers
+          //
           const database = {
             model: (name, options) => {
               const model = this.models[name];
@@ -50,11 +78,7 @@ class Staple {
 
                   // add extra helper so models can access
                   // the current paper configurations
-                  getCurrentPaper(value) {
-                    const paper = this.staple.papers[paperName];
-                    if (value) return dot.pick(value, paper);
-                    return paper;
-                  }
+                  booklet
                 };
               }
 
@@ -62,18 +86,26 @@ class Staple {
             }
           };
 
+          //
+          // Helpers that are passed to each paper
+          //
           const helpers = {
-            paper: this.papers[paperName],
+            booklet,
             database,
             controller
           };
 
+          //
+          // Initialize the module (paper)
+          //
           staple[paperName] = module(helpers);
         }
       }
     });
 
-    // load database managers
+    //
+    // Load database managers
+    //
     if (options.sequelize) require("./database/sequelize").bind(this)(options);
 
     return this;

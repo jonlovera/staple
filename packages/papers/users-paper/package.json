@@ -1,5 +1,5 @@
 {
-  "name": "staple-users",
+  "name": "users-paper",
   "version": "1.0.0-alpha.14",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,8 @@
   "license": "MIT",
   "dependencies": {
     "bcrypt": "^3.0.6",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^8.5.1",
+    "mailer-paper": "^1.0.0-alpha.17"
   },
   "peerDependencies": {
     "staple": "^1.0.0-alpha.14"

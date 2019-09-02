@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const staple = require("staple");
 const Sequelize = require("sequelize");
@@ -18,6 +19,19 @@ staple.setup({
     users: {
       jwt: {
         privateKey: "MY_SUPER_SECRET_PRIVATE_KEY"
+      }
+    },
+    mailer: {
+      message: {
+        from: "niftylettuce@gmail.com"
+      },
+      transport: {
+        jsonTransport: true
+      },
+      views: {
+        options: {
+          extension: "hbs" // <---- HERE
+        }
       }
     }
   }

@@ -11,12 +11,14 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.4",
+    "handlebars": "^4.1.2",
     "pg": "^7.11.0",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.10.0",
     "staple": "^1.0.0-alpha.14",
-    "staple-shop": "^1.0.0-alpha.17",
-    "staple-users": "^1.0.0-alpha.14"
+    "mailer-paper": "^1.0.0-alpha.17",
+    "shop-paper": "^1.0.0-alpha.17",
+    "users-paper": "^1.0.0-alpha.14"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
