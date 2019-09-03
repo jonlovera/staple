@@ -2,6 +2,9 @@
   "name": "staple",
   "version": "1.0.0-alpha.14",
   "description": "",
+  "bin": {
+    "staple": "./bin/staple-cli.js"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,8 +14,12 @@
   "dependencies": {
     "dot-object": "^1.8.1",
     "finalhandler": "^1.1.2",
+    "fs-extra": "^8.1.0",
     "merge-deep": "^3.0.2",
     "micro": "^9.3.4",
-    "urlencoded-body-parser": "^3.0.0"
+    "ora": "^3.4.0",
+    "shelljs": "^0.8.3",
+    "urlencoded-body-parser": "^3.0.0",
+    "yargs": "^14.0.0"
   }
 }
