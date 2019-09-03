@@ -12,12 +12,13 @@
   "dependencies": {
     "express": "^4.16.4",
     "handlebars": "^4.1.2",
+    "mailer-paper": "^1.0.0-alpha.17",
     "pg": "^7.11.0",
     "pg-hstore": "^2.3.3",
+    "routes-paper": "^1.0.0-alpha.17",
     "sequelize": "^5.10.0",
-    "staple": "^1.0.0-alpha.14",
-    "mailer-paper": "^1.0.0-alpha.17",
     "shop-paper": "^1.0.0-alpha.17",
+    "staple": "^1.0.0-alpha.14",
     "users-paper": "^1.0.0-alpha.14"
   },
   "devDependencies": {

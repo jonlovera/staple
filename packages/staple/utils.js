@@ -5,7 +5,7 @@ const parse = require("urlencoded-body-parser");
 
 const parseError = error => (typeof error === "string" ? { error } : error);
 
-module.exports.controller = controller => async (arg1, arg2, arg3) => {
+const controller = controller => async (arg1, arg2, arg3) => {
   let req = arg1,
     res = arg2,
     next = arg3;
@@ -54,6 +54,11 @@ module.exports.controller = controller => async (arg1, arg2, arg3) => {
   }
 };
 
-module.exports.appPath = (dir = "") => {
+const appPath = (dir = "") => {
   return path.join(process.cwd(), dir);
+};
+
+module.exports = {
+  appPath,
+  controller
 };

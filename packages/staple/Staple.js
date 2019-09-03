@@ -1,7 +1,11 @@
 "use strict";
 
+const path = require("path");
 const dot = require("dot-object");
 const merge = require("merge-deep");
+const paramCase = require("param-case");
+
+// utilities
 const { controller, appPath } = require("./utils");
 
 const getter = function(value) {
@@ -29,7 +33,16 @@ class Staple {
     //
     const papers = options.papers || {};
 
-    Object.keys(dependencies).map(pkgName => {
+    const paperDependencies = Object.keys(dependencies).filter(
+      dependency => dependency.indexOf("-paper") > -1
+    );
+
+    // @TODO add option for plugins to load last
+    paperDependencies.push(
+      paperDependencies.splice(paperDependencies.indexOf("routes-paper"), 1)[0]
+    );
+
+    paperDependencies.map(pkgName => {
       if (pkgName.indexOf("-paper") > -1) {
         const paperName = pkgName.replace("-paper", "");
 
@@ -53,7 +66,8 @@ class Staple {
               //   return options;
               // }
               get: getter
-            }
+            },
+            routes: []
           };
 
           const booklet = {
@@ -87,11 +101,50 @@ class Staple {
           };
 
           //
+          // Define all the routes and extract it's information
+          // like path, method and controller
+          //
+          let count = 0;
+          const route = options => {
+            const ctrl =
+              typeof options === "function"
+                ? controller(options)
+                : controller(options.controller);
+
+            this.booklet[paperName];
+
+            const index = count;
+
+            setTimeout(() => {
+              if (typeof options === "object") {
+                const actions = Object.keys(staple[paperName]);
+                const route = path.join(
+                  "/api",
+                  paperName,
+                  options.path || paramCase(actions[index])
+                );
+                const method = (options.method || "get").toUpperCase();
+
+                this.booklet[paperName].routes.push({
+                  path: options.fullPath || route,
+                  method: method,
+                  controller: ctrl
+                });
+              }
+            });
+
+            count++;
+            return ctrl;
+          };
+
+          //
           // Helpers that are passed to each paper
           //
           const helpers = {
+            staple,
             booklet,
             database,
+            route,
             controller
           };
 
