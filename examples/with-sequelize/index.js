@@ -1,4 +1,3 @@
-const path = require("path");
 const express = require("express");
 const staple = require("staple");
 const Sequelize = require("sequelize");
@@ -23,7 +22,7 @@ staple.setup({
     },
     mailer: {
       message: {
-        from: "niftylettuce@gmail.com"
+        from: "no-reply@yourwebsite.com"
       },
       transport: {
         jsonTransport: true
