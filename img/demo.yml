@@ -1,0 +1,305 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: bash -l
+
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /Users/jonathanlovera/Documents/Science/Projects/Moretape/Moretape
+
+  # Export additional ENV variables
+  env:
+    recording: true
+
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 80
+
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 22
+
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+
+  # Quality
+  # 1 - 100
+  quality: 100
+
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: floating
+    title: Staple
+    style:
+      border: 0px black solid
+      # boxShadow: none
+      # margin: 0px
+
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+
+  # The size of the font
+  fontSize: 12
+
+  # The height of lines
+  lineHeight: 1
+
+  # The spacing between letters
+  letterSpacing: 0
+
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+
+# Records, feel free to edit them
+records:
+  - delay: 392
+    content: "\e]7;file://192-168-1-6.tpgi.com.au/Users/jonathanlovera/Documents/Science/Projects/Moretape/Moretape\a"
+  - delay: 8
+    content: "\e[?1034hMoretape\e[32m\r\r\n\e[0;32m└─\e[0m\e[0;32m $\e[0m\e[0;32m \e[0m"
+  - delay: 614
+    content: c
+  - delay: 73
+    content: d
+  - delay: 232
+    content: ' '
+  - delay: 127
+    content: a
+  - delay: 88
+    content: w
+  - delay: 191
+    content: esome-react-app/
+  - delay: 489
+    content: "\r\n\e]7;file://192-168-1-6.tpgi.com.au/Users/jonathanlovera/Documents/Science/Projects/Moretape/Moretape/awesome-react-app\a"
+  - delay: 10
+    content: "awesome-react-app\e[32m (master)\r\r\n\e[0;32m└─\e[0m\e[0;32m $\e[0m\e[0;32m \e[0m"
+  - delay: 200
+    content: l
+  - delay: 89
+    content: s
+  - delay: 159
+    content: "\r\nREADME.md\tpackage.json\tsrc\r\nnode_modules\tpublic\t\tyarn.lock\r\n"
+  - delay: 5
+    content: "\e]7;file://192-168-1-6.tpgi.com.au/Users/jonathanlovera/Documents/Science/Projects/Moretape/Moretape/awesome-react-app\a"
+  - delay: 8
+    content: "awesome-react-app\e[32m (master)\r\r\n\e[0;32m└─\e[0m\e[0;32m $\e[0m\e[0;32m \e[0m"
+  - delay: 755
+    content: s
+  - delay: 141
+    content: t
+  - delay: 59
+    content: a
+  - delay: 135
+    content: p
+  - delay: 48
+    content: l
+  - delay: 107
+    content: e
+  - delay: 164
+    content: ' '
+  - delay: 107
+    content: p
+  - delay: 113
+    content: a
+  - delay: 112
+    content: p
+  - delay: 143
+    content: e
+  - delay: 153
+    content: r
+  - delay: 159
+    content: ' '
+  - delay: 164
+    content: u
+  - delay: 143
+    content: s
+  - delay: 88
+    content: e
+  - delay: 143
+    content: r
+  - delay: 153
+    content: s
+  - delay: 710
+    content: "\r\n"
+  - delay: 240
+    content: "\e[?25l\e[36m.  \e[39m "
+  - delay: 204
+    content: "\e[2K\e[1G\e[36m.. \e[39m Loading the stapler"
+  - delay: 202
+    content: "\e[2K\e[1G\e[36m...\e[39m Loading the stapler"
+  - delay: 203
+    content: "\e[2K\e[1G\e[36m ..\e[39m Loading the stapler"
+  - delay: 203
+    content: "\e[2K\e[1G\e[36m  .\e[39m Loading the stapler"
+  - delay: 203
+    content: "\e[2K\e[1G\e[36m   \e[39m Loading the stapler"
+  - delay: 202
+    content: "\e[2K\e[1G\e[36m.  \e[39m Loading the stapler"
+  - delay: 205
+    content: "\e[2K\e[1G\e[36m.. \e[39m Loading the stapler"
+  - delay: 205
+    content: "\e[2K\e[1G\e[36m...\e[39m Loading the stapler"
+  - delay: 202
+    content: "\e[2K\e[1G\e[36m ..\e[39m Loading the stapler"
+  - delay: 200
+    content: "\e[2K\e[1G\e[36m  .\e[39m Loading the stapler"
+  - delay: 201
+    content: "\e[2K\e[1G\e[36m   \e[39m Loading the stapler"
+  - delay: 201
+    content: "\e[2K\e[1G\e[36m.  \e[39m Loading the stapler"
+  - delay: 204
+    content: "\e[2K\e[1G\e[36m.. \e[39m Loading the stapler"
+  - delay: 200
+    content: "\e[2K\e[1G\e[36m...\e[39m Loading the stapler"
+  - delay: 203
+    content: "\e[2K\e[1G\e[36m ..\e[39m Loading the stapler"
+  - delay: 202
+    content: "\e[2K\e[1G\e[36m  .\e[39m Loading the stapler"
+  - delay: 201
+    content: "\e[2K\e[1G\e[36m   \e[39m Loading the stapler"
+  - delay: 202
+    content: "\e[2K\e[1G\e[36m.  \e[39m Loading the stapler"
+  - delay: 204
+    content: "\e[2K\e[1G\e[36m.. \e[39m Loading the stapler"
+  - delay: 201
+    content: "\e[2K\e[1G\e[36m...\e[39m Loading the stapler"
+  - delay: 204
+    content: "\e[2K\e[1G\e[36m ..\e[39m Loading the stapler"
+  - delay: 200
+    content: "\e[2K\e[1G\e[36m  .\e[39m Loading the stapler"
+  - delay: 200
+    content: "\e[2K\e[1G\e[36m   \e[39m Loading the stapler"
+  - delay: 201
+    content: "\e[2K\e[1G\e[36m.  \e[39m Loading the stapler"
+  - delay: 200
+    content: "\e[2K\e[1G\e[36m.. \e[39m Loading the stapler"
+  - delay: 201
+    content: "\e[2K\e[1G\e[36m...\e[39m Loading the stapler"
+  - delay: 206
+    content: "\e[2K\e[1G\e[36m ..\e[39m Loading the stapler"
+  - delay: 202
+    content: "\e[2K\e[1G\e[36m  .\e[39m Loading the stapler"
+  - delay: 201
+    content: "\e[2K\e[1G\e[36m   \e[39m Loading the stapler"
+  - delay: 205
+    content: "\e[2K\e[1G\e[36m.  \e[39m Loading the stapler"
+  - delay: 206
+    content: "\e[2K\e[1G\e[36m.. \e[39m Loading the stapler"
+  - delay: 203
+    content: "\e[2K\e[1G\e[36m...\e[39m Loading the stapler"
+  - delay: 202
+    content: "\e[2K\e[1G\e[36m ..\e[39m Loading the stapler"
+  - delay: 204
+    content: "\e[2K\e[1G\e[36m  .\e[39m Loading the stapler"
+  - delay: 200
+    content: "\e[2K\e[1G\e[36m   \e[39m Loading the stapler"
+  - delay: 201
+    content: "\e[2K\e[1G\e[36m.  \e[39m Loading the stapler"
+  - delay: 90
+    content: "\e[2K\e[1G\e[?25h\e[32m✔\e[39m Loading the stapler\r\n\e[?25l\e[36m┌┐\e[39m "
+  - delay: 234
+    content: "\e[2K\e[1G\e[36m__\e[39m Stapling papers"
+  - delay: 232
+    content: "\e[2K\e[1G\e[36m┌┐\e[39m Stapling papers"
+  - delay: 232
+    content: "\e[2K\e[1G\e[36m┌┐\e[39m Stapling papers"
+  - delay: 143
+    content: "\e[2K\e[1G\e[?25h\e[32m✔\e[39m Stapling papers\r\n\e[?25h"
+  - delay: 9
+    content: "\e]7;file://192-168-1-6.tpgi.com.au/Users/jonathanlovera/Documents/Science/Projects/Moretape/Moretape/awesome-react-app\a"
+  - delay: 13
+    content: "awesome-react-app\e[32m (master)\r\r\n\e[0;32m└─\e[0m\e[0;32m $\e[0m\e[0;32m \e[0m"
+  - delay: 755
+    content: s
+  - delay: 141
+    content: t
+  - delay: 59
+    content: a
+  - delay: 135
+    content: p
+  - delay: 48
+    content: l
+  - delay: 107
+    content: e
+  - delay: 164
+    content: ' '
+  - delay: 107
+    content: 'n'
+  - delay: 113
+    content: p
+  - delay: 112
+    content: m
+  - delay: 159
+    content: ' '
+  - delay: 164
+    content: s
+  - delay: 143
+    content: t
+  - delay: 88
+    content: a
+  - delay: 143
+    content: r
+  - delay: 153
+    content: t
+  - delay: 153
+    content: "\n"
+  - delay: 2407
+    content: "\a"
