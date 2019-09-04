@@ -9,7 +9,7 @@
 Staple is a JavaScript library for building api's for your user interfaces.
 
 - **Declarative:** Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel tellus ut orci interdum viverra sed non elit. Praesent elementum tincidunt molestie. Sed mollis ante nec malesuada accumsan.
-- **Component-Based:** Proin tempor condimentum ante, sed ullamcorper nunc viverra ac. Etiam ornare felis nisi, bibendum placerat elit commodo sed.
+- **Controller-Based:** Proin tempor condimentum ante, sed ullamcorper nunc viverra ac. Etiam ornare felis nisi, bibendum placerat elit commodo sed.
 - **Learn Once, Write Anywhere:** Mauris et lacus sed tellus pharetra sollicitudin sit amet facilisis mauris. Sed euismod sed lectus vel aliquet. Vestibulum id dignissim augue, ac consectetur nisi.
 
 <p align="center"><img src="/img/demo.gif?raw=true"/></p>
