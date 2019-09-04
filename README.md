@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://staple.moretape.com/">
-    <img src="/img/logo.png?raw=true" width="200"/>
+    <img src="/img/logo.png?raw=true" width="100"/>
   </a>
 </p>
 
