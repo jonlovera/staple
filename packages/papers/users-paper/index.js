@@ -3,9 +3,7 @@ const user = require("./sequelize/User.model");
 
 module.exports = ({ booklet, route, database }) => {
   const { config } = booklet.find("current");
-  const privateKey = config.get("jwt.privateKey");
-
-  // @TODO throw errors if missing configurations
+  const privateKey = config.get("jwt.privateKey") || "users_development_key";
 
   //
   // Define database models
