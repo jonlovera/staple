@@ -56,4 +56,4 @@ The main purpose of this repository is to continue to evolve Staple core, making
 
 ### [Code of Conduct](https://github.com/moretape/staple/blob/master/CODE_OF_CONDUCT)
 
-Facebook has adopted a Code of Conduct that we expect project participants to adhere to. Please read [the full text](https://github.com/moretape/staple/blob/master/CODE_OF_CONDUCT) so that you can understand what actions will and will not be tolerated.
+Moretape has adopted a Code of Conduct that we expect project participants to adhere to. Please read [the full text](https://github.com/moretape/staple/blob/master/CODE_OF_CONDUCT) so that you can understand what actions will and will not be tolerated.
