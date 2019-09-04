@@ -50,7 +50,7 @@ config:
   # Don't forget to add a backgroundColor style with a null as type
   frameBox:
     type: floating
-    title: Staple
+    title: null
     style:
       border: 0px black solid
       # boxShadow: none
@@ -130,14 +130,6 @@ records:
   - delay: 489
     content: "\r\n\e]7;file://192-168-1-6.tpgi.com.au/Users/jonathanlovera/Documents/Science/Projects/Moretape/Moretape/awesome-react-app\a"
   - delay: 10
-    content: "awesome-react-app\e[32m (master)\r\r\n\e[0;32m└─\e[0m\e[0;32m $\e[0m\e[0;32m \e[0m"
-  - delay: 200
-    content: l
-  - delay: 89
-    content: s
-  - delay: 159
-    content: "\r\nREADME.md\tpackage.json\tsrc\r\nnode_modules\tpublic\t\tyarn.lock\r\n"
-  - delay: 5
     content: "\e]7;file://192-168-1-6.tpgi.com.au/Users/jonathanlovera/Documents/Science/Projects/Moretape/Moretape/awesome-react-app\a"
   - delay: 8
     content: "awesome-react-app\e[32m (master)\r\r\n\e[0;32m└─\e[0m\e[0;32m $\e[0m\e[0;32m \e[0m"
