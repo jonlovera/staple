@@ -6,11 +6,11 @@
 
 # Staple &middot; [![GitHub license](https://img.shields.io/npm/l/staple.svg)](https://gitlab.com/moretape/staple/blob/develop/LICENSE) [![npm version](https://img.shields.io/npm/v/staple.svg?style=flat)](https://www.npmjs.com/package/staple)
 
-Staple is a JavaScript library for building api's for your user interfaces.
+Staple is a JavaScript library for building API's for your user interfaces in any NodeJS framework.
 
-- **Declarative:** Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vel tellus ut orci interdum viverra sed non elit. Praesent elementum tincidunt molestie. Sed mollis ante nec malesuada accumsan.
-- **Controller-Based:** Proin tempor condimentum ante, sed ullamcorper nunc viverra ac. Etiam ornare felis nisi, bibendum placerat elit commodo sed.
-- **Learn Once, Write Anywhere:** Mauris et lacus sed tellus pharetra sollicitudin sit amet facilisis mauris. Sed euismod sed lectus vel aliquet. Vestibulum id dignissim augue, ac consectetur nisi.
+- Maintain papers (plugins) once and use them in any NodeJS framework.
+- No need to write browser requests manually for your frontend apps. They will be automatically be generated.
+- Prototype apps without worrying about backend stuff.
 
 <p align="center"><img src="/img/demo.gif?raw=true"/></p>
 
