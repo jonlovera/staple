@@ -47,27 +47,22 @@ class Staple {
         const paperName = pkgName.replace("-paper", "");
 
         if (!staple[paperName]) {
-          const module = require(appPath(`node_modules/${pkgName}`));
+          const paperPath = appPath(`node_modules/${pkgName}`);
+          const module = require(paperPath);
 
           const config = papers[paperName] || {};
-
           //
           // Add information to the list of papers
           // to keep them organized
           //
           this.booklet[paperName] = {
             name: pkgName,
+            path: paperPath,
+            routes: [],
             config: {
               ...config,
-              // get(value) {
-              //   // Remove get function from it to avoid calling get again
-              //   const { get, ...options } = this;
-              //   if (value) return dot.pick(value, options);
-              //   return options;
-              // }
               get: getter
-            },
-            routes: []
+            }
           };
 
           const booklet = {
@@ -145,7 +140,8 @@ class Staple {
             booklet,
             database,
             route,
-            controller
+            controller,
+            appPath
           };
 
           //

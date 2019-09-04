@@ -1,9 +1,10 @@
 const staple = require("staple");
 const express = require("express");
 const Sequelize = require("sequelize");
+const { name } = require("./package.json");
 
 const sequelize = new Sequelize(
-  "postgres://postgres:postgres@localhost:5432/staple-with-sequelize"
+  `postgres://postgres:postgres@localhost:5432/${name || "staple-app"}`
 );
 staple.setup({ sequelize });
 

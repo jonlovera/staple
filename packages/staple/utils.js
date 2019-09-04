@@ -54,8 +54,8 @@ const controller = controller => async (arg1, arg2, arg3) => {
   }
 };
 
-const appPath = (dir = "") => {
-  return path.join(process.cwd(), dir);
+const appPath = (...args) => {
+  return path.join(process.cwd(), ...args);
 };
 
 module.exports = {
