@@ -1,0 +1,21 @@
+{
+  "name": "staple-with-express",
+  "version": "1.0.0-alpha.17",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon .",
+    "start": "node ."
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "staple": "^1.0.0-alpha.14",
+    "shop-paper": "^1.0.0-alpha.17",
+    "users-paper": "^1.0.0-alpha.14"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}

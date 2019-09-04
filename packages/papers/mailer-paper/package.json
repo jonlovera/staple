@@ -1,0 +1,17 @@
+{
+  "name": "mailer-paper",
+  "version": "1.0.0-alpha.17",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "email-templates": "^6.0.0"
+  },
+  "peerDependencies": {
+    "staple": "^1.0.0-alpha.14"
+  }
+}
