@@ -84,11 +84,13 @@ This paper generates an API for a users with login, signup, forgot password and 
 
 ## Setting Up a Local Copy
 
-1.  Clone the repo with `git clone https://gitlab.com/moretape/staple`
+1.  Make sure you have a `PostgreSQL` server running.
 
-2.  Run `yarn` or `npm install` in the root `staple` folder.
+2.  Clone the repo with `git clone https://gitlab.com/moretape/staple`
 
-Once it is done, you can modify any file locally and run `npm run start` just like in a generated project.
+3.  Run `yarn` or `npm install` in the root `staple` folder.
+
+Once it is done, you can modify any file locally and run `npm run start` and it will run the `examples/with-sequelize` project by default.
 
 If you want to try out the end-to-end flow with the global CLI, you can do this too:
 
@@ -99,6 +101,32 @@ npm link
 # then you can use it into any app, for example:
 cd path/to/my-awesome-react-app
 staple paper users
+```
+
+## Installing packages
+
+To install packages into any of the `examples/*` or `packages/*`, you need to have [`lerna`](https://github.com/lerna/lerna) installed. After, you can add npm packages like:
+
+```sh
+lerna add <package> --scope=<example-or-paper>
+```
+
+For example:
+
+```sh
+lerna add underscore --scope=staple
+```
+
+or
+
+```sh
+lerna add underscore --scope=users-paper
+```
+
+or
+
+```sh
+lerna add underscore --scope=staple-with-sequelize
 ```
 
 ## Tips for contributors using Windows
