@@ -2,7 +2,8 @@
   "private": true,
   "devDependencies": {
     "jest": "^24.8.0",
-    "lerna": "^3.11.1"
+    "lerna": "^3.11.1",
+    "sequelize": "^5.18.1"
   },
   "scripts": {
     "bootstrap": "lerna bootstrap",
