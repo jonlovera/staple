@@ -1,6 +1,6 @@
 {
   "name": "staple-with-http",
-  "version": "1.0.0-alpha.17",
+  "version": "1.0.0-alpha.18",
   "main": "index.js",
   "private": true,
   "scripts": {
@@ -10,9 +10,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "staple": "^1.0.0-alpha.14",
-    "shop-paper": "^1.0.0-alpha.17",
-    "users-paper": "^1.0.0-alpha.14"
+    "shop-paper": "^1.0.0-alpha.18",
+    "staple": "^1.0.0-alpha.18",
+    "users-paper": "^1.0.0-alpha.18"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"

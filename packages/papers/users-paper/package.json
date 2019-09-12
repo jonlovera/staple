@@ -1,6 +1,6 @@
 {
   "name": "users-paper",
-  "version": "1.0.0-alpha.14",
+  "version": "1.0.0-alpha.18",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   "dependencies": {
     "bcrypt": "^3.0.6",
     "jsonwebtoken": "^8.5.1",
-    "mailer-paper": "^1.0.0-alpha.17"
+    "mailer-paper": "^1.0.0-alpha.18"
   },
   "peerDependencies": {
     "staple": "^1.0.0-alpha.14"
