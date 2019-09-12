@@ -15,6 +15,8 @@ const config = require("../globals");
 exports.command = "run [command..]";
 exports.desc = "Run staple in the current folder";
 
+const stapleLogo = colors.cyan("┌┐");
+
 const logger = {
   state: {},
   print: debounce(350, function() {
@@ -28,15 +30,19 @@ const logger = {
 
     const errorLogKey = logs.find(key => state[key] && state[key].error);
 
-    if (errorLogKey) console.error(pe.render(state[errorLogKey].error));
+    if (errorLogKey) {
+      if (errorLogKey === "staple") {
+        console.log(`${stapleLogo} ${colors.cyan("Staple")}\n`);
+      }
+      console.error(pe.render(state[errorLogKey].error));
+    }
 
     if (!errorLogKey) {
       Object.keys(state).map(key => {
         if (key === "staple") {
-          const stapleLogo = colors.cyan("┌┐");
-          if (logs.length > 1) console.log("");
-          console.log(
-            `${stapleLogo} Staple is runing on the background.` // Press L to see more options.`
+          const nextLine = logs.length > 1 ? `\n` : "";
+          process.stdout.write(
+            `${nextLine}${stapleLogo} Staple is runing on the background.\n` // Press L to see more options.`
           );
         } else {
           const log = state[key];
@@ -44,7 +50,7 @@ const logger = {
             process.stdout.write(log.info);
           }
           if (log.defaultMessage && log.showDefaultMessage) {
-            process.stdout.write(`\n${log.defaultMessage}\n`);
+            process.stdout.write(`\n${log.defaultMessage}`);
           }
         }
       });
@@ -54,6 +60,7 @@ const logger = {
     return message => {
       if (!this.state[name]) this.state[name] = {};
       delete this.state[name][type];
+      delete this.state[name].error;
 
       if (type === "info") {
         debounce(200, () => {
