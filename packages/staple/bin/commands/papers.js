@@ -8,7 +8,19 @@ const { delay } = require("../utils");
 const loader = require("../utils/loaders");
 const { exec } = require("../utils/shelljs");
 
-module.exports = async args => {
+exports.command = "paper [names..]";
+exports.desc = "Add a paper to your current directory";
+exports.builder = function(yargs) {
+  return yargs
+    .positional("names", {
+      describe: "names of papers to install",
+      default: []
+    })
+    .required(["names"]);
+  // .commandDir("remote_cmds");
+};
+
+exports.handler = async args => {
   const packages = args.names.map(name => `${name}-paper`);
 
   loader.stapling.start();

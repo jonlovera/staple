@@ -1,16 +1,13 @@
 #!/usr/bin/env node
 
 // commands
-const papers = require("./papers");
+const init = require("./middleware/init");
 
 const argv = require("yargs")
   .usage("Usage: $0 <command> [options]")
-  .command(
-    "paper [names..]",
-    "Add paper to your current directory",
-    papers.yargs,
-    papers.add
-  )
+  // .command("$0", "the default command", () => {}, ensureStaple)
+  .middleware(init)
+  .commandDir("commands")
   .help("h")
   .alias("h", "help")
   .alias("v", "version").argv;
