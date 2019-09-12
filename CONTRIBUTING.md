@@ -90,6 +90,8 @@ This paper generates an API for a users with login, signup, forgot password and 
 
 3.  Run `yarn` or `npm install` in the root `staple` folder.
 
+4.  Run `yarn bootstrap` or `npm run bootstrap` in the root `staple` folder.
+
 Once it is done, you can modify any file locally and run `npm run start` and it will run the `examples/with-sequelize` project by default.
 
 If you want to try out the end-to-end flow with the global CLI, you can do this too:
