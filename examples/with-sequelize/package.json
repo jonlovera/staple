@@ -1,6 +1,6 @@
 {
   "name": "staple-with-sequelize",
-  "version": "1.0.0-alpha.18",
+  "version": "1.0.0-alpha.19",
   "main": "index.js",
   "private": true,
   "scripts": {
@@ -17,7 +17,7 @@
     "routes-paper": "^1.0.0-alpha.18",
     "sequelize": "^5.10.0",
     "shop-paper": "^1.0.0-alpha.18",
-    "staple": "^1.0.0-alpha.18",
+    "staple": "^1.0.0-alpha.19",
     "users-paper": "^1.0.0-alpha.18"
   },
   "devDependencies": {

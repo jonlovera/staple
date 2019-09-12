@@ -1,6 +1,6 @@
 {
   "name": "staple-with-express",
-  "version": "1.0.0-alpha.18",
+  "version": "1.0.0-alpha.19",
   "main": "index.js",
   "private": true,
   "scripts": {
@@ -12,7 +12,7 @@
   "dependencies": {
     "express": "^4.16.4",
     "shop-paper": "^1.0.0-alpha.18",
-    "staple": "^1.0.0-alpha.18",
+    "staple": "^1.0.0-alpha.19",
     "users-paper": "^1.0.0-alpha.18"
   },
   "devDependencies": {

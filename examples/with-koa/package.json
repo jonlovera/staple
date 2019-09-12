@@ -1,6 +1,6 @@
 {
   "name": "staple-with-koa",
-  "version": "1.0.0-alpha.18",
+  "version": "1.0.0-alpha.19",
   "main": "index.js",
   "private": true,
   "scripts": {
@@ -12,7 +12,7 @@
   "dependencies": {
     "koa": "^2.7.0",
     "shop-paper": "^1.0.0-alpha.18",
-    "staple": "^1.0.0-alpha.18",
+    "staple": "^1.0.0-alpha.19",
     "users-paper": "^1.0.0-alpha.18"
   },
   "devDependencies": {
