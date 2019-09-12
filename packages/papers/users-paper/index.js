@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 const user = require("./sequelize/User.model");
-
+//
 module.exports = ({ booklet, route, database }) => {
   const { config } = booklet.find("current");
   const privateKey = config.get("jwt.privateKey") || "users_development_key";
