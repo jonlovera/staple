@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-//
+
 // commands
 const init = require("./middleware/init");
 

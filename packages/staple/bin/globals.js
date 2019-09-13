@@ -11,6 +11,8 @@ paths.package = paths.staple;
 
 module.exports.paths = paths;
 
+require("dotenv").config({ path: path.join(paths.staple, ".env") });
+
 module.exports.env = {
-  development: true
+  development: process.env.STAPLE_CLI_DEVELOPMENT || false
 };

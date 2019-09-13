@@ -39,16 +39,15 @@ const logger = {
 
     if (!errorLogKey) {
       Object.keys(state).map(key => {
+        const log = state[key];
         if (key === "staple") {
           const nextLine = logs.length > 1 ? `\n` : "";
           process.stdout.write(
             `${nextLine}${stapleLogo} Staple is runing on the background.\n` // Press L to see more options.`
           );
+          // if (log.info) console.log(log.info);
         } else {
-          const log = state[key];
-          if (log.info) {
-            process.stdout.write(log.info);
-          }
+          if (log.info) process.stdout.write(log.info);
           if (log.defaultMessage && log.showDefaultMessage) {
             process.stdout.write(`\n${log.defaultMessage}`);
           }
