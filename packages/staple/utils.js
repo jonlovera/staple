@@ -1,6 +1,6 @@
 const path = require("path");
 const finalhandler = require("finalhandler");
-const { send } = require("micro");
+const { json, send } = require("micro");
 const parse = require("urlencoded-body-parser");
 
 const parseError = error => (typeof error === "string" ? { error } : error);
@@ -18,7 +18,16 @@ const controller = controller => async (arg1, arg2, arg3) => {
     next = arg2;
   }
 
-  if (!req.body) req.body = await parse(req);
+  // const body = await req.rawBody;
+  const isBody = Object.keys(req.body || {}).length > -1;
+  if (!req.body || !isBody) {
+    const isJson = req.headers["content-type"].indexOf("json") > -1;
+    if (isJson) req.body = await json(req);
+    else req.body = await parse(req);
+
+    if (!req.body) req.body = {};
+  }
+
   // if (!req.params) req.params = arg1.params;
   if (!res.send) res.send = value => send(res, 200, value);
   if (!res.status)
