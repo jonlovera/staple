@@ -1,14 +1,15 @@
 const staple = require("staple");
 const express = require("express");
+const cors = require("cors");
 const Sequelize = require("sequelize");
-const { name } = require("./package.json");
 
 const sequelize = new Sequelize(
-  `postgres://postgres:postgres@localhost:5432/${name || "staple-app"}`
+  `postgres://postgres:postgres@localhost:5432/staple-app`
 );
 staple.setup({ sequelize });
 
 const app = express();
+app.use(cors());
 
 app.use(staple.routes);
 
