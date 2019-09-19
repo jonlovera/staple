@@ -1,4 +1,5 @@
 const { router, ...methods } = require("microrouter");
+const codeGenerator = require("./codeGenerator");
 
 const methodsMap = {
   GET: "get",
@@ -14,24 +15,26 @@ module.exports = ({ staple, controller }) => {
   let appRouter,
     routes = [];
 
-  setTimeout(() => {
+  setTimeout(async () => {
     const { booklet } = staple;
     if (!appRouter) {
       Object.keys(booklet).map(name => {
         const paper = booklet[name];
         const { routes: paperRoutes } = paper;
+
         if (paperRoutes.length) {
           paperRoutes.map(route => {
-            let { path, method, controller } = route;
+            const { path, controller } = route;
+            const method = route.method ? methodsMap[route.method] : null;
 
             if (path && method && controller) {
-              method = methodsMap[method];
               routes.push(methods[method](path, controller));
             }
           });
         }
       });
 
+      await codeGenerator({ booklet, methodsMap });
       appRouter = router(...routes);
     }
   });

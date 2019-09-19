@@ -77,6 +77,7 @@ module.exports = ({ booklet, route, database }) => {
     // Update password route
     //
     updatePassword: route({
+      path: "/update-password/:token",
       method: "POST",
       controller: async (req, res) => {
         const { token } = req.params;

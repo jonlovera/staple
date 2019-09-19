@@ -113,14 +113,16 @@ class Staple {
             setTimeout(() => {
               if (typeof options === "object") {
                 const actions = Object.keys(staple[paperName]);
+                const action = actions[index];
                 const route = path.join(
                   "/api",
                   paperName,
-                  options.path || paramCase(actions[index])
+                  options.path || paramCase(action)
                 );
                 const method = (options.method || "get").toUpperCase();
 
                 this.booklet[paperName].routes.push({
+                  action: action,
                   path: options.fullPath || route,
                   method: method,
                   controller: ctrl

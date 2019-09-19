@@ -21,7 +21,8 @@ const controller = controller => async (arg1, arg2, arg3) => {
   // const body = await req.rawBody;
   const isBody = Object.keys(req.body || {}).length > -1;
   if (!req.body || !isBody) {
-    const isJson = req.headers["content-type"].indexOf("json") > -1;
+    const contentType = req.headers["content-type"] || [];
+    const isJson = contentType.includes("json");
     if (isJson) req.body = await json(req);
     else req.body = await parse(req);
 
