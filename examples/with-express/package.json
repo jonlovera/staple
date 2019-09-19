@@ -1,6 +1,6 @@
 {
   "name": "staple-with-express",
-  "version": "1.0.0-alpha.21",
+  "version": "1.0.0-alpha.22",
   "main": "index.js",
   "private": true,
   "scripts": {
@@ -12,8 +12,8 @@
   "dependencies": {
     "express": "^4.16.4",
     "shop-paper": "^1.0.0-alpha.18",
-    "staple": "^1.0.0-alpha.21",
-    "users-paper": "^1.0.0-alpha.20"
+    "staple": "^1.0.0-alpha.22",
+    "users-paper": "^1.0.0-alpha.22"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
