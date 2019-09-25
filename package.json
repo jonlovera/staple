@@ -1,19 +1,16 @@
 {
   "private": true,
-  "devDependencies": {
-    "jest": "^24.8.0",
-    "lerna": "^3.11.1",
-    "sequelize": "^5.18.1"
-  },
   "scripts": {
     "start": "npm run sequelize",
-    "koa": "npm run dev --prefix ./examples/with-koa",
-    "http": "npm run dev --prefix ./examples/with-http",
-    "express": "npm run dev --prefix ./examples/with-express",
     "sequelize": "npm run dev --prefix ./examples/with-sequelize",
+    "express": "npm run dev --prefix ./examples/with-express",
     "test": "jest",
     "test:watch": "jest --watch",
-    "bootstrap": "lerna bootstrap",
-    "release": "lerna publish"
+    "setup": "lerna bootstrap",
+    "publish": "lerna publish",
+    "release": "npm run publish"
+  },
+  "devDependencies": {
+    "lerna": "^3.16.4"
   }
 }

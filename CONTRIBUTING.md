@@ -49,7 +49,7 @@ packages/
   staple/
   papers/
     mailer-paper/
-    routes-paper/
+    router-paper/
     shop-paper/
     users-paper/
 ```
@@ -70,7 +70,7 @@ This folder is where or the main papers (plugins) live. All the papers are optio
 
 This paper it's in charge of sending emails. It allows other papers to send emails.
 
-#### [routes-paper](https://gitlab.com/moretape/staple/tree/develop/packages/papers/routes-paper)
+#### [router-paper](https://gitlab.com/moretape/staple/tree/develop/packages/papers/router-paper)
 
 This paper generates routes automatically based on the booklet (all the stapled papers) and all the default papers configurations. It allow staple to run in any NodeJS framework without any configuration by just using it as a middleware ex. `app.use(staple.routes)`.
 

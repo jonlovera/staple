@@ -1,21 +1,23 @@
 {
   "name": "staple-with-express",
   "version": "1.0.0-alpha.22",
-  "main": "index.js",
+  "main": "server.js",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon .",
     "start": "node ."
   },
-  "license": "MIT",
   "dependencies": {
-    "express": "^4.16.4",
-    "shop-paper": "^1.0.0-alpha.18",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
     "staple": "^1.0.0-alpha.22",
-    "users-paper": "^1.0.0-alpha.22"
+    "@staple/core": "^1.0.0-alpha.22",
+    "mailer-paper": "^1.0.0-alpha.18"
   },
+  "author": "Moretape Team <opensource@moretape.com>",
+  "license": "MIT",
+  "description": "",
   "devDependencies": {
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.2"
   }
 }

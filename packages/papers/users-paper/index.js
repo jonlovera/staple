@@ -1,20 +1,21 @@
 const jwt = require("jsonwebtoken");
-const user = require("./sequelize/User.model");
-//
-module.exports = ({ booklet, route, database }) => {
-  const { config } = booklet.find("current");
+// const user = require("./sequelize/Users.model");
+
+module.exports = async function setup({ booklet, database, route }) {
+  const config = this.config;
   const privateKey = config.get("jwt.privateKey") || "users_development_key";
 
   //
   // Define database models
   //
-  const User = database.model("User", user);
+  const Users = database.model("Users");
 
   return {
     //
     // Login route
     //
     login: route({
+      path: "/login",
       method: "POST",
       controller: async (req, res) => {
         const { email, password } = req.body;
@@ -23,7 +24,7 @@ module.exports = ({ booklet, route, database }) => {
           return res.badRequest(`${param} is required`);
         }
 
-        const user = await User.retrieve({ email });
+        const user = await Users.retrieve({ email });
         if (user) {
           const isValidPassword = await user.verifyPassword(password);
 
@@ -41,9 +42,10 @@ module.exports = ({ booklet, route, database }) => {
     // Signup route
     //
     signup: route({
+      path: "/signup",
       method: "POST",
       controller: async (req, res) => {
-        const user = await User.create(req.body);
+        const user = await Users.create(req.body);
         if (user) return res.send(user);
         return res.serverError();
       }
@@ -53,10 +55,11 @@ module.exports = ({ booklet, route, database }) => {
     // Forgot password route
     //
     forgotPassword: route({
+      path: "/forgot-password",
       method: "POST",
       controller: async (req, res) => {
         const { email } = req.body;
-        const user = await User.retrieve({ email });
+        const user = await Users.retrieve({ email });
 
         if (user) {
           const { token, expires } = await user.generateResetPasswordToken();
@@ -85,7 +88,7 @@ module.exports = ({ booklet, route, database }) => {
 
         if (!password) return res.badRequest("Password is required.");
 
-        const user = await User.retrieve({ updatePasswordToken: token });
+        const user = await Users.retrieve({ updatePasswordToken: token });
 
         if (user) {
           user.update({

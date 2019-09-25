@@ -1,18 +1,17 @@
 {
   "name": "staple-with-http",
   "version": "1.0.0-alpha.22",
-  "main": "index.js",
+  "main": "server.js",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon .",
     "start": "node ."
   },
   "license": "MIT",
   "dependencies": {
-    "shop-paper": "^1.0.0-alpha.18",
     "staple": "^1.0.0-alpha.22",
-    "users-paper": "^1.0.0-alpha.22"
+    "@staple/core": "^1.0.0-alpha.22",
+    "mailer-paper": "^1.0.0-alpha.18"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"

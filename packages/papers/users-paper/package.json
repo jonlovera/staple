@@ -3,17 +3,13 @@
   "version": "1.0.0-alpha.22",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
+  "author": "Moretape Team <opensource@moretape.com>",
   "license": "MIT",
   "dependencies": {
     "bcrypt": "^3.0.6",
+    "database-paper": "^1.0.0-alpha.22",
     "jsonwebtoken": "^8.5.1",
-    "mailer-paper": "^1.0.0-alpha.18"
-  },
-  "peerDependencies": {
-    "staple": "^1.0.0-alpha.14"
+    "mailer-paper": "^1.0.0-alpha.18",
+    "router-paper": "^1.0.0-alpha.22"
   }
 }

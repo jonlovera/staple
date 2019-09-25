@@ -1,0 +1,17 @@
+{
+  "name": "@staple/core",
+  "version": "1.0.0-alpha.22",
+  "main": "lib/index.js",
+  "author": "Moretape Team <opensource@moretape.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@hapi/topo": "^3.1.4",
+    "app-module-path": "^2.2.0",
+    "chalk": "^2.4.2",
+    "dot-object": "^1.9.0",
+    "finalhandler": "^1.1.2",
+    "merge-deep": "^3.0.2",
+    "micro": "^9.3.4",
+    "urlencoded-body-parser": "^3.0.0"
+  }
+}

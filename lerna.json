@@ -2,6 +2,7 @@
   "packages": [
     "examples/*",
     "packages/*",
+    "packages/@staple/*",
     "packages/papers/*"
   ],
   "version": "1.0.0-alpha.22"

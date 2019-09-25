@@ -1,0 +1,13 @@
+{
+  "name": "database-paper",
+  "version": "1.0.0-alpha.22",
+  "description": "",
+  "main": "lib/index.js",
+  "author": "Moretape Team <opensource@moretape.com>",
+  "license": "MIT",
+  "dependencies": {
+    "glob": "^7.1.4",
+    "glob-promise": "^3.4.0",
+    "shelljs": "^0.8.3"
+  }
+}
