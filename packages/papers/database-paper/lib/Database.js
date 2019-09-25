@@ -1,6 +1,4 @@
 "use strict";
-const path = require("path");
-const glob = require("glob-promise");
 
 const SequelizeResource = require("./resources/adapters/SequelizeResource");
 // const MongooseResource = require("./resources/adapters/MongooseResource");
@@ -17,15 +15,6 @@ class Database {
     } else if (this.dbType === "mongoose") {
       this.mongoose = mongoose;
     }
-  }
-
-  async setup({ modelsPath }) {
-    const files = await glob(path.join(modelsPath, "**/*.js"));
-    files.map(file => {
-      const name = path.basename(file, path.extname(file));
-      const model = require(file);
-      this.model(name, model);
-    });
   }
 
   model(name, model) {

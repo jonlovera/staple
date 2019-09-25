@@ -3,14 +3,10 @@
   "version": "1.0.0-alpha.22",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
+  "author": "Moretape Team <opensource@moretape.com>",
   "license": "MIT",
   "dependencies": {
     "microrouter": "^3.1.3",
-    "param-case": "^2.1.1",
     "path-to-regexp": "^3.1.0"
   },
   "peerDependencies": {

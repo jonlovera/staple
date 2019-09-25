@@ -1,7 +1,7 @@
 {
   "name": "staple-with-sequelize",
   "version": "1.0.0-alpha.22",
-  "main": "server.js",
+  "main": "src/server.js",
   "private": true,
   "scripts": {
     "dev": "nodemon .",

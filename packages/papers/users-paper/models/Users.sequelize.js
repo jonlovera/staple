@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 const bcrypt = require("bcrypt");
-const { crypto } = require("users-paper/utils");
+const { crypto } = require("../utils");
 
 module.exports = {
   attributes: {

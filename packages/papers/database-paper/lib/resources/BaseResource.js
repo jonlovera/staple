@@ -4,47 +4,40 @@ class BaseResource {
   constructor({ name, model }) {
     this.name = name;
     this.model = model;
-
-    const { classMethods = {} } = this.model;
-
-    Object.keys(classMethods).map(name => {
-      const method = classMethods[name];
-      this.prototype[name] = method;
-    });
   }
 
   //
   // Find one
   //
-  retrieve(idOrWhere) {
+  retrieve(where, options) {
     throw new NotImplementedError("BaseResource.retrieve");
   }
 
   //
   // List all
   //
-  list(where) {
+  list(options) {
     throw new NotImplementedError("BaseResource.list");
   }
 
   //
   // Create
   //
-  create(params) {
+  create(body, options) {
     throw new NotImplementedError("BaseResource.create");
   }
 
   //
   // Update
   //
-  update(idOrWhere) {
+  update(where, body, options) {
     throw new NotImplementedError("BaseResource.update");
   }
 
   //
   // Destroy
   //
-  destroy(idOrWhere) {
+  destroy(where, options) {
     throw new NotImplementedError("BaseResource.destroy");
   }
 }

@@ -23,7 +23,7 @@ class Staple {
     const booklet = new Booklet();
     staple.booklet = { papers: booklet.papers, find: booklet.find };
 
-    const pkg = require(paths.app("package.json"));
+    const pkg = require(paths.cwd("package.json"));
     booklet.registerPapers(pkg.dependencies);
 
     const pluginsHelpers = {};

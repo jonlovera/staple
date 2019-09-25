@@ -21,7 +21,7 @@ class Booklet {
     this.order = new Topo();
 
     // @HACK for lerna to resolve link dependencies
-    addPath(paths.app("node_modules"));
+    addPath(paths.nodeModule());
   }
 
   find(name) {

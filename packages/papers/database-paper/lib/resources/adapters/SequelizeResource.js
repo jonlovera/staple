@@ -19,41 +19,46 @@ class SequelizeResource extends BaseResource {
       const method = instanceMethods[name];
       this.model.prototype[name] = method;
     });
+
+    Object.keys(classMethods).map(name => {
+      const method = classMethods[name];
+      this.prototype[name] = method;
+    });
   }
 
   //
   // Find one
   //
-  async retrieve(idOrWhere) {
-    return await this.model.findOne({ where: parseWhere(idOrWhere) });
+  async retrieve(where, options) {
+    return await this.model.findOne({ where: parseWhere(where) });
   }
 
   //
   // List all
   //
-  async list(where) {
+  async list(where, options) {
     return await this.model.findAll({ where });
   }
 
   //
   // Create
   //
-  async create(params) {
-    return await this.model.create(params);
+  async create(body, options) {
+    return await this.model.create(body);
   }
 
   //
   // Update
   //
-  async update(idOrWhere) {
-    return await this.model.update(params, { where: parseWhere(idOrWhere) });
+  async update(where, body, options) {
+    return await this.model.update(body, { where: parseWhere(where) });
   }
 
   //
   // Destroy
   //
-  async destroy(idOrWhere) {
-    return await this.model.destroy({ where: parseWhere(idOrWhere) });
+  async destroy(where, options) {
+    return await this.model.destroy({ where: parseWhere(where) });
   }
 }
 

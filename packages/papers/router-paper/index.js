@@ -1,5 +1,4 @@
 const { join } = require("path");
-const paramCase = require("param-case");
 const { router, ...methods } = require("microrouter");
 
 // const codeGenerator = require("./codeGenerator");

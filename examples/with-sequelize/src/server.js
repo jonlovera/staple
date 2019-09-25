@@ -18,5 +18,7 @@ staple.setup(config).then(() => {
   app.use(staple.router);
 
   sequelize.sync();
-  app.listen(4000, () => console.log("⚡ Server running on PORT 4000"));
+  app.listen(4000, () =>
+    console.log("⚡ Express Server with Sequelize running on port 4000")
+  );
 });

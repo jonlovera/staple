@@ -6,8 +6,8 @@
   "author": "Moretape Team <opensource@moretape.com>",
   "license": "MIT",
   "dependencies": {
+    "deepmerge": "^4.0.0",
     "glob": "^7.1.4",
-    "glob-promise": "^3.4.0",
-    "shelljs": "^0.8.3"
+    "glob-promise": "^3.4.0"
   }
 }
