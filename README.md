@@ -8,6 +8,10 @@
 
 <p align="center"><img src="/img/demo.gif?raw=true"/></p>
 
+# Important notice
+
+This project is still under heavy development and constantly improvement.
+
 # Installation
 
 You need to install [Node.js](https://nodejs.org/en/download/) first, then install the tool globally using this command:
