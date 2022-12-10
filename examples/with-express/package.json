@@ -10,7 +10,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "shop-paper": "^1.0.0-alpha.18",
     "staple": "^1.0.0-alpha.22",
     "users-paper": "^1.0.0-alpha.22"
