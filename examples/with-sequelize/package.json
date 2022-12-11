@@ -10,7 +10,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "mailer-paper": "^1.0.0-alpha.18",
     "pg": "^7.11.0",
     "pg-hstore": "^2.3.3",
